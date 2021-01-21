@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M.Shahryar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div>
+        <h1>Made by Muhaamad Shahryar</h1>
+
+    </div>
+    <div>
+        <a href="https://www.fiverr.com/share/BwX6Kl">1.Click here</a><br>
+        <a href="https://www.fiverr.com/share/l3LlAj">2.Click here</a><br>
+        <a href="https://www.fiverr.com/share/2Aer5L">3.Click here</a>
+
+    </div>
+    <div>
+        <h1>StopWatch</h1>
+    </div>
+    <div>
+        <h1 id="min">0</h1>
+        <h1 id="sec">0</h1>
+        <h1 id="msec">0</h1>
+    </div>
+    <div>
+        <button onclick="start()">Start</button>
+        <button onclick="stop()">Stop</button>
+        <button onclick="reset()">Reset</button>
+    </div>
+
+
+
+    <script>
+        var min = 0
+        var sec = 0
+        var msec = 0
+        var minHeading = document.getElementById("min")
+        var secHeading = document.getElementById("sec")
+        var msecHeading = document.getElementById("msec")
+        var interval;
+
+
+        function timer() {
+            msec++
+            msecHeading.innerHTML = msec
+            if (msec >= 100) {
+                sec++
+                secHeading.innerHTML = sec
+                msec = 0
+            } else if (sec >= 60) {
+                min++
+                minHeading.innerHTML = min
+                sec = 0
+            }
+        }
+
+        function start() {
+            if (!interval) {
+                interval = setInterval(timer, 10)
+            }
+
+        }
+        function stop() {
+            clearInterval(interval)
+            interval = false
+        }
+        function reset() {
+            min = 0
+            sec = 0
+            msec = 0
+            minHeading.innerHTML = 0
+            secHeading.innerHTML = 0
+            msecHeading.innerHTML = 0
+            stop()
+        }
+
+    </script>
+</body>
+
+</html>
